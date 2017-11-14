@@ -1,0 +1,23 @@
+{
+  "name": "quick-pick-account-bookmarklet",
+  "version": "1.0.0",
+  "description": "In some manual testing scenarios you may need to use predefined accounts to test with in different test environments.  This project creates a bookmarklet you can use to quickly pick accounts and passwords for development account testing.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "bookmarklet ./dist/AccountPicker.js ./dist/AccountPickerBookmarklet.js",
+    "compile": "rollup -c rollup.config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "bookmarklet": "0.0.6",
+    "express": "^4.16.2",
+    "rollup": "^0.51.5",
+    "rollup-plugin-svelte": "^3.1.0",
+    "svelte-cli": "^1.4.0"
+  }
+}
