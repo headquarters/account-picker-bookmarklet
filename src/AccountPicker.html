@@ -1,9 +1,74 @@
-<div>
+<div id="account-picker">
+  <ul>
   {{#each accounts as account}}
-    <ul>
-      <li>
-        {{account.username}}:{{account.password}}
-      </li>
-    </ul>
+    <li>
+      <a href="#nogo" on:click='select(account, event)'>{{account.username}}:{{account.password}}</a>
+    </li>
   {{/each}}
+  </ul>
 </div>
+<div id="account-picker-overlay" ref:overlay>&nbsp;</div>
+
+<script>
+  export default {
+    oncreate() { },
+    ondestroy() { },
+    methods: {
+      select: function (account, event) {
+        event.preventDefault();
+        const selectors = this.get('selectors');
+        
+        document.querySelector(selectors.username).setAttribute('value', account.username);
+        document.querySelector(selectors.password).setAttribute('value', account.password);
+
+        this.destroy();
+      }
+    }
+  };
+</script>
+
+<style>
+  #account-picker {
+    width: 300px;
+    background: white;
+    position: absolute;
+    z-index: 1000000;
+    left: calc(50vw - 150px);
+    top: calc(50vh - 100px);
+    font: 16px/1 sans-serif;
+  }
+
+  #account-picker ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  #account-picker ul li a {
+    display: block;
+    padding: 10px;
+    border-bottom: 1px solid darkgray;
+    text-decoration: none;
+  }
+
+  #account-picker ul li:last-child a {
+    border-bottom: none;
+  }
+
+  #account-picker ul li a:hover {
+    background: lightgray;
+  }
+
+  #account-picker-overlay {
+    content: " ";
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0.4;
+    z-index: 10000;
+  }
+</style>

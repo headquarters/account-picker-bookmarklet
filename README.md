@@ -1,4 +1,4 @@
-# Quick pick account bookmarklet
+# Account Picker Bookmarklet Generator
 
 In some manual testing scenarios you may need to use predefined accounts to test with in different test environments. 
 This project creates a bookmarklet you can use to quickly pick accounts and passwords for

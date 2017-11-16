@@ -13,11 +13,40 @@ app.get('/', function (req, res) {
     <html lang="en">
     <head>
       <title>Bookmarklet Test Page</title>
+      <style>
+        body {
+          font-family: sans-serif;
+        }
+
+        label {
+          display: block;
+          padding: 5px 0;
+        }
+
+        .bookmarklet {
+          text-decoration: none;
+          background: lightblue;
+          padding: 10px;
+          color: black;
+        }
+
+        .bookmarklet:hover {
+          background: lightskyblue;
+        }
+
+      </style>
     </head>
     <body>
       <div id="app"></div>
+      <div>
+        <form>
+          <h1>Sample form</h1>
+          <label>Username: <input type="text" name="username" /></label>
+          <label>Password: <input type="password" name="password" /></label>
+        </form>
+      </div>
       <p>
-        <a href="${bookmarklet}">Open Bookmarklet</a> 
+        <a class="bookmarklet" href="${bookmarklet}">Open Bookmarklet</a> 
       </p>
     </body>  
     </html>
